@@ -349,6 +349,7 @@ module ActsAsFerret
     end
     ActsAsFerret::logger.debug "options: #{options.inspect}\nar_options: #{ar_options.inspect}"
     total_hits, result = index.find_records query, options.merge(:models => models), ar_options
+    result = [] if !result
     ActsAsFerret::logger.debug "Query: #{query}\ntotal hits: #{total_hits}, results delivered: #{result.size}"
     SearchResults.new(result, total_hits, options[:page], options[:per_page])
   end
