@@ -1,13 +1,13 @@
 module ActsAsFerret
   
-  if defined?(ActiveSupport::BasicObject)
+  if defined?(ActiveSupport::ProxyObject)
     # Rails 2.3, 3.x
-    class BlankSlate < ActiveSupport::BasicObject
+    class BlankSlate < ActiveSupport::ProxyObject
     end
     
-  elsif defined?(::BasicObject)
+  elsif defined?(::ProxyObject)
     # Ruby 1.9.x
-    class BlankSlate < BasicObject
+    class BlankSlate < ProxyObject
     end
     
   elsif defined?(::BlankSlate)
